@@ -20,5 +20,17 @@ import java.util.List;
  */
 public interface CityService {
 
+    /**
+     * 根据省份编号查询该省份下的所有城市
+     * @param provinceCode
+     * @return
+     */
     List<CityEntity> queryByProvinceCode(String provinceCode);
+
+    /**
+     * 根据城市编号获取城市
+     * @param code
+     * @return
+     */
+    CityEntity queryByCode(String code);
 }

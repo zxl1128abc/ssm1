@@ -10,7 +10,10 @@
     </resultMap>
 
     <select id="queryByCityCode" resultMap="resultMap" parameterType="java.lang.String">
-        SELECT id,code,name,cityid from city where cityid=#{cityCode}
+        SELECT id,code,name,cityid from area where cityid=#{cityCode}
     </select>
 
+    <select id="queryByCode" resultMap="resultMap" parameterType="java.lang.String">
+        select id,code,name,cityid from area where code=#{code}
+    </select>
 </mapper>

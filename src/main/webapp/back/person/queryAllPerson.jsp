@@ -67,6 +67,12 @@
                 {title:"生日",field:"bir",width:200,align:"center",sortable:true,
                     editor:{type:"datebox",}
                 },
+                {title:"所在省份",field:"provinceName",width:200,align:"center",
+                    editor:{type:"textbox",
+                    options:{required:true,validType:"uname",}
+                }},
+                {title:"所在城市",field:"cityName",width:100,align:"center",editor:{type:"textbox",options:{required:true,validType:"uname",}}},
+                {title:"所在县区",field:"areaName",width:100,align:"center",editor:{type:"textbox",options:{required:true,validType:"uname",}}},
                 {title:"操作",field:"options",width:300,
                     formatter:function(value,row,index){
                         return "<a href='javascript:;' onclick=\"delRow('"+row.id+"');\" class='del'>删除 </a>"+

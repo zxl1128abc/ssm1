@@ -26,4 +26,11 @@ public interface CityDAO {
      * @return
      */
     List<CityEntity> queryByProvinceCode(String provinceCode);
+
+    /**
+     * 根据城市编号获取城市
+     * @param code
+     * @return
+     */
+    CityEntity queryByCode(String code);
 }
