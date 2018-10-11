@@ -34,4 +34,10 @@ public class AreaServiceImpl implements AreaService{
     public List<AreaEntity> queryByCityCode(String cityCode) {
         return areaDAO.queryByCityCode(cityCode);
     }
+
+    @Transactional(propagation = Propagation.SUPPORTS,readOnly = true)
+    @Override
+    public AreaEntity queryByCode(String code) {
+        return areaDAO.queryByCode(code);
+    }
 }

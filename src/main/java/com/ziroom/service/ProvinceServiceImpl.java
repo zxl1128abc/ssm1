@@ -34,4 +34,10 @@ public class ProvinceServiceImpl implements ProvinceService{
     public List<ProvinceEntity> queryAll() {
         return provinceDAO.queryAll();
     }
+
+    @Transactional(propagation = Propagation.SUPPORTS,readOnly = true)
+    @Override
+    public ProvinceEntity queryByCode(String code) {
+        return provinceDAO.queryByCode(code);
+    }
 }

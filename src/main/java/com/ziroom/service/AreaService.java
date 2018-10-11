@@ -25,4 +25,10 @@ public interface AreaService {
      * @return
      */
     List<AreaEntity> queryByCityCode(String cityCode);
+    /**
+     * 根据编号查询县区
+     * @param code
+     * @return
+     */
+    AreaEntity queryByCode(String code);
 }

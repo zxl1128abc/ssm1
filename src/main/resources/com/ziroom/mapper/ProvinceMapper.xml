@@ -5,4 +5,8 @@
     <select id="queryAll" resultType="com.ziroom.entity.ProvinceEntity">
         SELECT id,code,name from province
     </select>
+
+    <select id="queryByCode" resultType="com.ziroom.entity.ProvinceEntity" parameterType="java.lang.String">
+        SELECT id,code,name from province where code=#{code}
+    </select>
 </mapper>

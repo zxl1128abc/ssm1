@@ -74,4 +74,17 @@ public enum ProvinceEnum {
     public void setName(String name) {
         this.name = name;
     }
+
+    public static ProvinceEnum getByProvinceCode(String provinceCode){
+        if(provinceCode == null || provinceCode ==""){
+            return null;
+        }
+        for (ProvinceEnum provinceEnum : ProvinceEnum.values() ) {
+            if(provinceEnum.getCode().equalsIgnoreCase(provinceCode.trim())){
+                return provinceEnum;
+            }
+        }
+        return null;
+    }
+
 }

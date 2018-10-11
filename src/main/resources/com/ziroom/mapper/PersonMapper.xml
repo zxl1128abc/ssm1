@@ -3,22 +3,22 @@
 <mapper namespace="com.ziroom.dao.PersonDAO">
 
     <select id="queryAll"  resultType="com.ziroom.entity.PersonEntity">
-        SELECT id,name,age,bir from t_person
+        SELECT id,name,age,bir,provinceCode,cityCode,areaCode from t_person
     </select>
     <select id="queryById" parameterType="java.lang.String" resultType="com.ziroom.entity.PersonEntity">
-         SELECT id,name,age,bir from t_person where id=#{id}
+         SELECT id,name,age,bir,provinceCode,cityCode,areaCode from t_person where id=#{id}
     </select>
     <select id="queryByPage" parameterType="java.lang.Integer" resultType="com.ziroom.entity.PersonEntity">
-        select id,name,age,bir from t_person limit #{page-1}*10,1
+        select id,name,age,bir,provinceCode,cityCode,areaCode from t_person limit #{page-1}*10,1
     </select>
     <select id="queryCount"  resultType="java.lang.Integer">
         select count(*) from t_person
     </select>
     <insert id="save" parameterType="com.ziroom.entity.PersonEntity" >
-        INSERT into t_person (id,name,age,bir) VALUES (#{id},#{name},#{age},#{bir})
+        INSERT into t_person (id,name,age,bir,provinceCode,cityCode,areaCode) VALUES (#{id},#{name},#{age},#{bir},#{provinceCode},#{cityCode},#{areaCode})
     </insert>
     <update id="update" parameterType="com.ziroom.entity.PersonEntity">
-        update t_person set name=#{name},age=#{age},bir=#{bir} where id=#{id}
+        update t_person set name=#{name},age=#{age},bir=#{bir},provinceCode=#{provinceCode},cityCode=#{cityCode},areaCode=#{areaCode} where id=#{id}
     </update>
     <delete id="delete" parameterType="java.lang.String">
         delete from t_person where id=#{id}
