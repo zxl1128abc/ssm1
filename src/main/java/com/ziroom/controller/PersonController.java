@@ -1,11 +1,16 @@
 package com.ziroom.controller;
 
 import com.ziroom.common.ProvinceEnum;
+import com.ziroom.entity.AreaEntity;
+import com.ziroom.entity.CityEntity;
 import com.ziroom.entity.PersonEntity;
+import com.ziroom.entity.ProvinceEntity;
+import com.ziroom.response.AllPersonResponse;
 import com.ziroom.service.AreaService;
 import com.ziroom.service.CityService;
 import com.ziroom.service.PersonService;
 import com.ziroom.service.ProvinceService;
+import jdk.nashorn.internal.parser.DateParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +22,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.net.URLDecoder;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -59,8 +66,31 @@ public class PersonController {
      */
     @RequestMapping("/queryAll")
     @ResponseBody
-    public List<PersonEntity> queryAll(){
-        return personService.queryAll();
+    public List<AllPersonResponse> queryAll(){
+        List<AllPersonResponse> responseList = new ArrayList<>();
+        List<PersonEntity> personEntities = personService.queryAll();
+        for (PersonEntity personEntity : personEntities) {
+            AllPersonResponse personResponse = new AllPersonResponse();
+            personResponse.setAge(personEntity.getAge());
+            personResponse.setId(personEntity.getId());
+            personResponse.setName(personEntity.getName());
+            String format = new SimpleDateFormat("yyyy-MM-dd").format(personEntity.getBir());
+            personResponse.setBir(format);
+            ProvinceEntity provinceEntity = provinceService.queryByCode(personEntity.getProvinceCode());
+            if(provinceEntity != null){
+                personResponse.setProvinceName(provinceEntity.getName());
+            }
+            CityEntity cityEntity = cityService.queryByCode(personEntity.getCityCode());
+            if(cityEntity != null){
+                personResponse.setCityName(cityEntity.getName());
+            }
+            AreaEntity areaEntity = areaService.queryByCode(personEntity.getAreaCode());
+            if(areaEntity != null){
+                personResponse.setAreaName(areaEntity.getName());
+            }
+            responseList.add(personResponse);
+        }
+        return responseList;
     }
 
 

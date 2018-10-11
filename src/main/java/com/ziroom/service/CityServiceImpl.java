@@ -34,4 +34,10 @@ public class CityServiceImpl implements CityService{
     public List<CityEntity> queryByProvinceCode(String provinceCode) {
         return cityDAO.queryByProvinceCode(provinceCode);
     }
+
+    @Transactional(propagation = Propagation.SUPPORTS,readOnly = true)
+    @Override
+    public CityEntity queryByCode(String code) {
+        return cityDAO.queryByCode(code);
+    }
 }

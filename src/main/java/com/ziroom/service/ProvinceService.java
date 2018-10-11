@@ -26,4 +26,10 @@ public interface ProvinceService {
      */
     List<ProvinceEntity> queryAll();
 
+    /**
+     * 根据编号查看省份
+     * @param code
+     * @return
+     */
+    ProvinceEntity queryByCode(String code);
 }

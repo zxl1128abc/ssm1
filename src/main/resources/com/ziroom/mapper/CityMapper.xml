@@ -13,4 +13,8 @@
         SELECT id,code,name,provinceid from city where provinceid=#{provinceCode}
     </select>
 
+    <select id="queryByCode" resultMap="resultMap" parameterType="java.lang.String">
+        select id,code,name,provinceid from city where code=#{code}
+    </select>
+
 </mapper>
