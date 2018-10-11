@@ -1,0 +1,49 @@
+[{"id":"1",
+  "title":"系统管理",
+  "iconCls":"icon-man",
+  "selected":true,
+  "children":[{
+    "id":"111",
+    "title":"用户管理",
+    "iconCls":"icon-save",
+    "selected":false,
+    "href":"/ssm/back/person/queryAllPerson.jsp"
+  },{
+    "id":"112",
+    "title":"日志管理",
+    "iconCls":"icon-edit",
+    "selected":true,
+    "href":"/ssm/person/allPersonList"
+  },{
+    "id":"113",
+    "title":"运行情况",
+    "iconCls":"icon-remove",
+    "selected":false,
+    "href":""
+  }]
+},{
+  "id":"2",
+  "title":"员工管理",
+  "iconCls":"icon-filter",
+  "selected":true,
+  "children":[{
+    "id":"211",
+    "title":"基本信息",
+    "iconCls":"icon-save",
+    "href":"",
+    "selected":false
+  },{
+    "id":"212",
+    "title":"仓库管理",
+    "iconCls":"icon-save",
+    "href":"",
+    "selected":false
+  }]
+
+},{
+  "id":"3",
+  "title":"部门管理",
+  "iconCls":"icon-remove",
+  "selected":true,
+  "children":[]
+}]

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ziroom.dao.RoleDAO">
+    <resultMap id="resultMap" type="com.ziroom.entity.RoleEntity">
+        <id property="id" column="id" jdbcType="VARCHAR"/>
+        <result property="roleName" column="roleName" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--根据用户名查询当前用户的角色-->
+    <select id="queryByUsername" resultMap="resultMap" parameterType="java.lang.String">
+        SELECT r.id,r.roleName from t_role r left join t_user u on r.id=u.role_id where u.username=#{username}
+    </select>
+
+</mapper>

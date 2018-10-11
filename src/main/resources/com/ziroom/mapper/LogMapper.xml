@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ziroom.dao.LogDAO">
+
+    <!--查询所有日志表中的数据-->
+    <select id="queryAll" resultType="com.ziroom.entity.LogEntity" >
+        SELECT id,username,doSomething,status,date from t_log
+    </select>
+</mapper>
